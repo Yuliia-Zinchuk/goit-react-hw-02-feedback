@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Button } from './Button/Button';
+import { Statistics } from './Statistics/Statistics';
 import FeedBack from './Feedback/FeedBack';
 import css from './Feedback/FeedBack.module.css';
 class App extends Component {
@@ -70,11 +71,18 @@ class App extends Component {
             text="good"
           />
           <h2 className={css.title_list}>Statistics</h2>
-          <ul className={css.stat_list}>
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.ountPositiveFeedbackPercentage()}
+          />
+          {/* <ul className={css.stat_list}>
             <li className={css.item}>
-              <span className={css.label}>Good: {good}</span>
-              {/* <span className={css.count}></span> */}
-            </li>
+              <span className={css.label}>Good: {good}</span> */}
+          {/* <span className={css.count}></span> */}
+          {/* </li>
             <li className={css.item}>
               <span className={css.label}>Neutral: {neutral} </span>
             </li>
@@ -91,7 +99,7 @@ class App extends Component {
                 Positive feedback: {this.ountPositiveFeedbackPercentage()}%
               </span>
             </li>
-          </ul>
+          </ul> */}
         </div>
 
         {/* <div>
