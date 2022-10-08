@@ -32,16 +32,3 @@
   composes: title;
   font-size: 30px;
 }
-
-.stat_list {
-  margin-left: auto;
-}
-
-.item {
-  display: flex;
-}
-
-.label {
-  composes: title;
-  font-size: 20px;
-}

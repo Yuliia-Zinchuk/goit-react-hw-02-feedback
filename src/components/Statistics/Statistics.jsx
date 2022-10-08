@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from '../Feedback/FeedBack.module.css';
+import css from '../Statistics/Statistics.module.css';
 export const Statistics = ({
   good,
   neutral,

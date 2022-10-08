@@ -1,0 +1,17 @@
+.stat_list {
+  margin-left: auto;
+}
+
+.item {
+  display: flex;
+}
+
+.label {
+  display: flex;
+  justify-content: start;
+  padding-left: 50px;
+  /* align-items: center; */
+  font-size: 40px;
+  color: #010101;
+  font-size: 20px;
+}
