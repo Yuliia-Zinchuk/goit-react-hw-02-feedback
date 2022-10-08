@@ -13,15 +13,22 @@ class App extends Component {
     this.setState(prevState => {
       return {
         [e.target.name]: prevState[e.target.name] + 1,
-
-        // good: prevState.good + 1,
       };
     });
   };
 
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
+  ountPositiveFeedbackPercentage = () => {
+    const { good } = this.state;
+    if (good > 0) return Math.round((100 / this.countTotalFeedback()) * good);
+  };
   render() {
     const { good, neutral, bad } = this.state;
 
+    console.log(this.ountPositiveFeedbackPercentage());
     return (
       <>
         <div className={css.card}>
@@ -72,7 +79,17 @@ class App extends Component {
               <span className={css.label}>Neutral: {neutral} </span>
             </li>
             <li className={css.item}>
-              <span className={css.label}>Bad:{bad} </span>
+              <span className={css.label}>Bad: {bad}</span>
+            </li>
+            <li className={css.item}>
+              <span className={css.label}>
+                Total: {this.countTotalFeedback()}
+              </span>
+            </li>
+            <li className={css.item}>
+              <span className={css.label}>
+                Positive feedback: {this.ountPositiveFeedbackPercentage()}%
+              </span>
             </li>
           </ul>
         </div>
