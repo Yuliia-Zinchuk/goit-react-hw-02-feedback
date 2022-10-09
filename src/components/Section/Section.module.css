@@ -1,6 +1,6 @@
 .title {
   display: flex;
-  justify-content: start;
+  /* justify-content: start; */
   padding-left: 50px;
   font-size: 40px;
   color: #010101;
