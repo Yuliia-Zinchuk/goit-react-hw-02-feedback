@@ -12,7 +12,6 @@
   text-decoration: none;
   outline: none;
   color: #fff;
-  /* background-color: #4caf50; */
   background-color: #1f54e7;
   border: none;
   border-radius: 10px;
@@ -20,7 +19,6 @@
 }
 
 .btn:hover {
-  /* background-color: #3e8e41; */
   background-color: #0b1baa;
 }
 

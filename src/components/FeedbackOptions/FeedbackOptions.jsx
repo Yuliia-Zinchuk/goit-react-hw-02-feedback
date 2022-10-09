@@ -10,7 +10,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
           <button
             key={nanoid()}
             name={option}
-            //   type={type}
+            type="Button"
             onClick={onLeaveFeedback}
             className={css.btn}
           >
@@ -23,11 +23,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  //   options: PropTypes.shape(
-  //     PropTypes.arrayOf({
-  //       option: PropTypes.string.isRequired,
-  //     }).isRequired
-  //   ),
   options: PropTypes.object.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };

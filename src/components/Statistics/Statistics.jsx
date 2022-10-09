@@ -13,7 +13,6 @@ export const Statistics = ({
         <ul className={css.stat_list}>
           <li className={css.item}>
             <span className={css.label}>Good: {good}</span>
-            {/* <span className={css.count}></span> */}
           </li>
           <li className={css.item}>
             <span className={css.label}>Neutral: {neutral} </span>
