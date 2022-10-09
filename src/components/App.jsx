@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { Button } from './Button/Button';
 import { Statistics } from './Statistics/Statistics';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Section } from './Section/Section';
 import FeedBack from './Feedback/FeedBack';
 import css from './Feedback/FeedBack.module.css';
 class App extends Component {
@@ -32,10 +34,10 @@ class App extends Component {
     console.log(this.ountPositiveFeedbackPercentage());
     return (
       <>
-        <div className={css.card}>
-          <h1 className={css.title}>Please leave feedback</h1>
-          {/* это три кнопки работающие но с одной функцией хендл  */}
-          {/* <div className={css.btn_list}>
+        {/* <div className={css.card}>
+          <h1 className={css.title}>Please leave feedback</h1> */}
+        {/* это три кнопки работающие но с одной функцией хендл  */}
+        {/* <div className={css.btn_list}>
             <button
               onClick={this.handleIncrementGood}
               name="good"
@@ -52,25 +54,27 @@ class App extends Component {
             </button>
             <button className={css.btn}>Bad</button>
           </div> */}
-          <Button
-            type="Button"
-            name="good"
-            onIncremetGood={this.handleIncrementGood}
-            text="good"
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            // type="Button"
+            options={this.state}
+            onLeaveFeedback={this.handleIncrementGood}
           />
-          <Button
+        </Section>
+        {/* <Button
             type="Button"
             name="neutral"
-            onIncremetGood={this.handleIncrementGood}
+            onLeaveFeedback={this.handleIncrementGood}
             text="good"
           />
           <Button
             type="Button"
             name="bad"
-            onIncremetGood={this.handleIncrementGood}
+            onLeaveFeedback={this.handleIncrementGood}
             text="good"
-          />
-          <h2 className={css.title_list}>Statistics</h2>
+          /> */}
+        {/* <h2 className={css.title_list}>Statistics</h2> */}
+        <Section title="Statistics">
           <Statistics
             good={good}
             neutral={neutral}
@@ -78,11 +82,12 @@ class App extends Component {
             total={this.countTotalFeedback()}
             positivePercentage={this.ountPositiveFeedbackPercentage()}
           />
-          {/* <ul className={css.stat_list}>
+        </Section>
+        {/* <ul className={css.stat_list}>
             <li className={css.item}>
               <span className={css.label}>Good: {good}</span> */}
-          {/* <span className={css.count}></span> */}
-          {/* </li>
+        {/* <span className={css.count}></span> */}
+        {/* </li>
             <li className={css.item}>
               <span className={css.label}>Neutral: {neutral} </span>
             </li>
@@ -100,7 +105,6 @@ class App extends Component {
               </span>
             </li>
           </ul> */}
-        </div>
 
         {/* <div>
           <button onClick={this.handleIncrementGood}>+</button>

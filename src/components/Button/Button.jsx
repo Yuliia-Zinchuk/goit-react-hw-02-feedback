@@ -15,12 +15,12 @@ import css from '../Feedback/FeedBack.module.css';
 //   ));
 // };
 
-export const Button = ({ name, type, text, onIncremetGood }) => {
+export const Button = ({ name, type, text, onLeaveFeedback }) => {
   return (
     <button
       name={name}
       type={type}
-      onClick={onIncremetGood}
+      onClick={onLeaveFeedback}
       className={css.btn}
     >
       {text}
