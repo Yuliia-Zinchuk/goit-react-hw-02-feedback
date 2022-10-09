@@ -9,26 +9,28 @@ export const Statistics = ({
 }) => {
   return (
     <>
-      <ul className={css.stat_list}>
-        <li className={css.item}>
-          <span className={css.label}>Good: {good}</span>
-          {/* <span className={css.count}></span> */}
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>Neutral: {neutral} </span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>Bad: {bad}</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>Total: {total}</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>
-            Positive feedback: {positivePercentage}%
-          </span>
-        </li>
-      </ul>
+      <div className={css.stat}>
+        <ul className={css.stat_list}>
+          <li className={css.item}>
+            <span className={css.label}>Good: {good}</span>
+            {/* <span className={css.count}></span> */}
+          </li>
+          <li className={css.item}>
+            <span className={css.label}>Neutral: {neutral} </span>
+          </li>
+          <li className={css.item}>
+            <span className={css.label}>Bad: {bad}</span>
+          </li>
+          <li className={css.item}>
+            <span className={css.label}>Total: {total}</span>
+          </li>
+          <li className={css.item}>
+            <span className={css.label}>
+              Positive feedback: {positivePercentage}%
+            </span>
+          </li>
+        </ul>
+      </div>
     </>
   );
 };

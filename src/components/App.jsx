@@ -3,6 +3,7 @@ import { Button } from './Button/Button';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
+import { Notification } from './Notification/Notification';
 import FeedBack from './Feedback/FeedBack';
 import css from './Feedback/FeedBack.module.css';
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
     bad: 0,
   };
 
-  handleIncrementGood = e => {
+  onLeaveFeedback = e => {
     this.setState(prevState => {
       return {
         [e.target.name]: prevState[e.target.name] + 1,
@@ -24,120 +25,48 @@ class App extends Component {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
   };
-  ountPositiveFeedbackPercentage = () => {
+  countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
     if (good > 0) return Math.round((100 / this.countTotalFeedback()) * good);
   };
   render() {
     const { good, neutral, bad } = this.state;
-
-    console.log(this.ountPositiveFeedbackPercentage());
+    console.log(this.countTotalFeedback());
+    console.log(this.state);
+    console.log(this.countPositiveFeedbackPercentage());
     return (
       <>
-        {/* <div className={css.card}>
-          <h1 className={css.title}>Please leave feedback</h1> */}
-        {/* это три кнопки работающие но с одной функцией хендл  */}
-        {/* <div className={css.btn_list}>
-            <button
-              onClick={this.handleIncrementGood}
-              name="good"
-              className={css.btn}
-            >
-              Good
-            </button>
-            <button
-              onClick={this.handleIncrementGood}
-              name="neutral"
-              className={css.btn}
-            >
-              Neutral
-            </button>
-            <button className={css.btn}>Bad</button>
-          </div> */}
         <Section title="Please leave feedback">
           <FeedbackOptions
             // type="Button"
             options={this.state}
-            onLeaveFeedback={this.handleIncrementGood}
+            onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
-        {/* <Button
-            type="Button"
-            name="neutral"
-            onLeaveFeedback={this.handleIncrementGood}
-            text="good"
-          />
-          <Button
-            type="Button"
-            name="bad"
-            onLeaveFeedback={this.handleIncrementGood}
-            text="good"
-          /> */}
-        {/* <h2 className={css.title_list}>Statistics</h2> */}
+
         <Section title="Statistics">
-          <Statistics
+          {good || neutral || bad ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification message="There is no feedback" />
+          )}
+          {/* <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
             total={this.countTotalFeedback()}
-            positivePercentage={this.ountPositiveFeedbackPercentage()}
-          />
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          /> */}
         </Section>
-        {/* <ul className={css.stat_list}>
-            <li className={css.item}>
-              <span className={css.label}>Good: {good}</span> */}
-        {/* <span className={css.count}></span> */}
-        {/* </li>
-            <li className={css.item}>
-              <span className={css.label}>Neutral: {neutral} </span>
-            </li>
-            <li className={css.item}>
-              <span className={css.label}>Bad: {bad}</span>
-            </li>
-            <li className={css.item}>
-              <span className={css.label}>
-                Total: {this.countTotalFeedback()}
-              </span>
-            </li>
-            <li className={css.item}>
-              <span className={css.label}>
-                Positive feedback: {this.ountPositiveFeedbackPercentage()}%
-              </span>
-            </li>
-          </ul> */}
-
-        {/* <div>
-          <button onClick={this.handleIncrementGood}>+</button>
-          <h3>good: {good}</h3>
-          <button onClick={this.handleIncrementNeutral}>+=</button>
-          <h3>neutral: {neutral}</h3>
-          <button onClick={this.handleIncrementBad}>+=</button>
-          <h3>bad: {bad}</h3>
-        </div> */}
       </>
     );
   }
 }
 
-// валидный ретурн с кнопками
-//  return (
-//    <>
-//      <div>
-//        <button onClick={this.handleIncrementGood}>+</button>
-//        <h3>good: {good}</h3>
-//        <button onClick={this.handleIncrementNeutral}>+=</button>
-//        <h3>neutral: {neutral}</h3>
-//        <button onClick={this.handleIncrementBad}>+=</button>
-//        <h3>bad: {bad}</h3>
-//      </div>
-//    </>
-//  );
-
-// export const App = () => {
-//   return (
-//     <div>
-//       <FeedBack />
-//     </div>
-//   );
-// };}
 export { App };

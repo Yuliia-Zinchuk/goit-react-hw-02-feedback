@@ -1,4 +1,8 @@
+.stat {
+  position: relative;
+}
 .stat_list {
+  position: absolute;
   margin-left: auto;
 }
 
