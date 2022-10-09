@@ -11,8 +11,8 @@
 }
 
 .label {
-  display: flex;
-  justify-content: start;
+  /* display: flex; */
+  /* justify-content: start; */
   padding-left: 50px;
 
   font-weight: 400;
