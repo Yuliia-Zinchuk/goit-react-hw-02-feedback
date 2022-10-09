@@ -1,11 +1,11 @@
 import { Component } from 'react';
-import { Button } from './Button/Button';
+// import { Button } from './Button/Button';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
 import { Notification } from './Notification/Notification';
-import FeedBack from './Feedback/FeedBack';
-import css from './Feedback/FeedBack.module.css';
+// import FeedBack from './Feedback/FeedBack';
+// import css from './Feedback/FeedBack.module.css';
 class App extends Component {
   state = {
     good: 0,
@@ -31,9 +31,9 @@ class App extends Component {
   };
   render() {
     const { good, neutral, bad } = this.state;
-    console.log(this.countTotalFeedback());
-    console.log(this.state);
-    console.log(this.countPositiveFeedbackPercentage());
+    // console.log(this.countTotalFeedback());
+    // console.log(this.state);
+    // console.log(this.countPositiveFeedbackPercentage());
     return (
       <>
         <Section title="Please leave feedback">
