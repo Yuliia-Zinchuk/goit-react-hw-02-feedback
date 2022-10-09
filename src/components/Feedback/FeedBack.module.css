@@ -18,7 +18,7 @@
   color: #010101;
 }
 
-.btn_list {
+/* .btn_list {
   display: flex;
   gap: 10px;
   padding-left: 90px;
@@ -26,7 +26,7 @@
 .btn {
   gap: 10px;
   color: #010101;
-}
+} */
 
 .title_list {
   composes: title;

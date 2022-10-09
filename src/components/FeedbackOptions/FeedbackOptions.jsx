@@ -1,21 +1,33 @@
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-//import css from './FeedBack.module.css';
+import css from './FeedbackOptions.module.css';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <>
-      {Object.keys(options).map(option => (
-        <button
-          key={nanoid()}
-          name={option}
-          //   type={type}
-          onClick={onLeaveFeedback}
-          // className={css.btn}
-        >
-          {option}
-        </button>
-      ))}
+      <div className={css.btn_list}>
+        {Object.keys(options).map(option => (
+          <button
+            key={nanoid()}
+            name={option}
+            //   type={type}
+            onClick={onLeaveFeedback}
+            className={css.btn}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
     </>
   );
+};
+
+FeedbackOptions.propTypes = {
+  //   options: PropTypes.shape(
+  //     PropTypes.arrayOf({
+  //       option: PropTypes.string.isRequired,
+  //     }).isRequired
+  //   ),
+  options: PropTypes.object.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };

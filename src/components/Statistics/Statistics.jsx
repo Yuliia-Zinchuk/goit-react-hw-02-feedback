@@ -24,25 +24,23 @@ export const Statistics = ({
           <li className={css.item}>
             <span className={css.label}>Total: {total}</span>
           </li>
-          <li className={css.item}>
-            <span className={css.label}>
-              Positive feedback: {positivePercentage}%
-            </span>
-          </li>
+          {good > 0 && (
+            <li className={css.item}>
+              <span className={css.label}>
+                Positive feedback: {positivePercentage}%
+              </span>
+            </li>
+          )}
         </ul>
       </div>
     </>
   );
 };
 
-// Statistics.propTypes = {
-//   title: PropTypes.string,
-
-//   stats: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       label: PropTypes.string.isRequired,
-//       percentage: PropTypes.number.isRequired,
-//     }).isRequired
-//   ),
-// };
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number,
+};
